@@ -401,7 +401,7 @@ footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
     <div class="ttl">
       <h1>ROV <span class="nw">ฟ้าใสเกมส์ 18</span></h1>
       <p class="eventline">คณะบริหารธุรกิจ มหาวิทยาลัยเกษตรศาสตร์ <span class="num" id="eventDates"></span></p>
-      <div class="meta"><span>เกม ROV</span><span>7 ทีม (5 ต่อ 5)</span><span>แบ่งสาย 4 + 3 ทีม แล้วแพ้คัดออก</span></div>
+      <div class="meta"><span>เกม ROV</span><span>6 ทีม (5 ต่อ 5)</span><span>แบ่งสาย 3 + 3 ทีม แล้วแพ้คัดออก</span></div>
       <span class="conn" id="conn"><i></i><span id="connText">กำลังเชื่อมต่อ</span></span>
     </div>
     <div class="crest"><img class="logo" src="logo-fasai.jpg" width="172" height="172" alt="โลโก้ฟ้าใสเกมส์ ครั้งที่ 18"></div>
@@ -472,10 +472,10 @@ footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
     </details>
     <details open><summary><small>หมวด 3</small>รูปแบบการแข่งขัน</summary>
       <div class="clause"><span class="no">3.1</span><p>การแข่งขันแบ่งเป็น 2 ช่วง คือ รอบแบ่งสาย (Group Stage) และรอบน็อกเอาต์ (Knockout Stage)</p></div>
-      <div class="clause"><span class="no">3.2</span><p>มีทั้งหมด 7 ทีม แบ่งเป็นสาย A จำนวน 4 ทีม และสาย B จำนวน 3 ทีม</p></div>
+      <div class="clause"><span class="no">3.2</span><p>มีทั้งหมด 6 ทีม แบ่งเป็นสาย A จำนวน 3 ทีม และสาย B จำนวน 3 ทีม (ทีมขอเสียงมิด ๆ ได้บ่ ขอถอนตัวก่อนเริ่มแข่ง)</p></div>
     </details>
     <details open><summary><small>หมวด 4</small>รอบแบ่งสาย</summary>
-      <div class="clause"><span class="no">4.1</span><p>ใช้ระบบ Single Round Robin คือแต่ละทีมพบกับทุกทีมในสายเดียวกันคนละ 1 คู่ (สาย A ทีมละ 3 คู่ สาย B ทีมละ 2 คู่)</p></div>
+      <div class="clause"><span class="no">4.1</span><p>ใช้ระบบ Single Round Robin คือแต่ละทีมพบกับทุกทีมในสายเดียวกันคนละ 1 คู่ (ทั้งสาย A และสาย B ทีมละ 2 คู่)</p></div>
       <div class="clause"><span class="no">4.2</span><p>แต่ละคู่แข่งแบบ Best of 3 (Bo3) ทีมที่ชนะ 2 เกมก่อนเป็นผู้ชนะคู่นั้น</p></div>
       <div class="clause key"><span class="no">4.3</span><p>นับแต้มสองส่วนรวมกัน ส่วนที่ 1 ทีมชนะได้ 3 แต้ม ทีมแพ้ได้ 0 แต้ม ส่วนที่ 2 บวกเพิ่มตามจำนวนเกมที่ทีมทำได้ในคู่นั้น เช่น ชนะ 2 ต่อ 1 ทีมชนะได้ 3 บวก 2 รวม 5 แต้ม ทีมแพ้ได้ 0 บวก 1 รวม 1 แต้ม ชนะ 2 ต่อ 0 ทีมชนะได้ 5 แต้ม ทีมแพ้ได้ 0 แต้ม</p></div>
       <div class="clause"><span class="no">4.4</span><p>ทีมอันดับ 1 และอันดับ 2 ของแต่ละสาย ผ่านเข้าสู่รอบรองชนะเลิศ (ตามตารางการแข่งขัน)</p></div>
@@ -755,7 +755,7 @@ function renderBracket() {
     });
     var anyTb = st.list.some(function (r) { return r.tb; });
     var hint = st.tied ? "แต้มและผลต่างเกมเท่ากัน รอผู้จัดการแข่งขันแจ้ง" : st.done ? (anyTb ? "จบรอบแบ่งสายแล้ว ทีมที่มีป้าย เกณฑ์ แต้มเท่ากับทีมอื่นและตัดสินด้วยกติกาข้อ 4.5" : "จบรอบแบ่งสายแล้ว") : "ยังแข่งไม่ครบ อันดับเป็นผลชั่วคราว";
-    out += '<div class="box"><h3><span class="tag ' + g + '">' + STAGE[g] + "</span>" + (g === "A" ? "4 ทีม" : "3 ทีม") + '</h3><div class="tblwrap"><table><thead><tr><th>อันดับ</th><th>ทีม</th><th>เล่น</th><th>ชนะ-แพ้</th><th>เกมได้-เสีย</th><th>แต้ม</th></tr></thead><tbody>' + rows + '</tbody></table></div><p class="hint">' + hint + "</p></div>";
+    out += '<div class="box"><h3><span class="tag ' + g + '">' + STAGE[g] + "</span>" + st.list.length + " ทีม" + '</h3><div class="tblwrap"><table><thead><tr><th>อันดับ</th><th>ทีม</th><th>เล่น</th><th>ชนะ-แพ้</th><th>เกมได้-เสีย</th><th>แต้ม</th></tr></thead><tbody>' + rows + '</tbody></table></div><p class="hint">' + hint + "</p></div>";
   });
   document.getElementById("stand").innerHTML = out;
   document.getElementById("ko").innerHTML = koHtml();
@@ -787,6 +787,7 @@ function renderStatic() {
 /* เลือกทีม */
 function setupPicker() {
   var sel = document.getElementById("team");
+  if (selectedTeam && !DATA.teams.some(function (t) { return t.n === selectedTeam; })) { selectedTeam = ""; try { localStorage.removeItem("rovTeam"); } catch (e) {} }
   sel.innerHTML = '<option value="">ยังไม่เลือก (ดูทุกทีม)</option>' + DATA.teams.map(function (t) { return "<option" + (t.n === selectedTeam ? " selected" : "") + ">" + esc(t.n) + "</option>"; }).join("");
   sel.onchange = function () { selectedTeam = sel.value; try { localStorage.setItem("rovTeam", selectedTeam); } catch (e) {} renderOverview(); };
 }
