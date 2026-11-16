@@ -32,7 +32,10 @@
       "a": "หมีกินหมี",
       "b": "no pain no run",
       "room": 3,
-      "res": null,
+      "res": [
+        2,
+        0
+      ],
       "live": null
     },
     {
